@@ -15,6 +15,7 @@ import {
 } from 'three'
 import {OrbitControls} from './lib/OrbitControls.js'
 import {Transition} from './transition.js'
+import worldImage from './assets/world.jpg';
 
 const origin = new Vector3();
 
@@ -51,7 +52,7 @@ renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(width, height);
 container.appendChild(renderer.domElement);
 
-const texture = new TextureLoader().load('/dist/world.jpg');
+const texture = new TextureLoader().load(worldImage);
 
 const earthMaterial = new MeshBasicMaterial({
     side: DoubleSide, map: texture,
@@ -87,11 +88,11 @@ steps.map((dom, i) => {
         steps.map(e => e.className = e.className.replace(/ active/, ''));
         dom.className += ' active';
         to(state[names[i]], 1000, i === 2);
-    }, false)
+    }, { passive: true })
 })
 
-document.addEventListener('mousemove', onDocumentMouseMove, false);
-window.addEventListener('resize', onWindowResize, false);
+document.addEventListener('mousemove', onDocumentMouseMove, { passive: true });
+window.addEventListener('resize', onWindowResize, { passive: true });
 
 function to(target, time, resetCamera) {
     if (transition) {

@@ -7,6 +7,9 @@
     "build": "parcel build ./index.html"
   },
   "devDependencies": {
-    "babel-preset-env": "^1.6.1"
+    "@babel/core": "^7.14.0",
+    "@babel/preset-env": "^7.14.0",
+    "@babel/plugin-proposal-class-properties": "^7.14.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.14.0"
   }
 }

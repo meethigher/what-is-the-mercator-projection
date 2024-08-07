@@ -1,12 +1,6 @@
 {
-  "presets": [
-    ["env", { "modules": false }],
-    "stage-2"
-  ],
-  "comments": false,
-  "env": {
-    "test": {
-      "presets": ["env", "stage-2"]
-    }
-  }
+  "plugins": [
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-proposal-object-rest-spread"
+  ]
 }
